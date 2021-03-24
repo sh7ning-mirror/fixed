@@ -1,4 +1,4 @@
-module github.com/robaho/fixed
+module github.com/sh7ning-mirror/fixed
 
 go 1.14
 

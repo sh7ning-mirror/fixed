@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/robaho/fixed"
+	"github.com/sh7ning-mirror/fixed"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package fixed_test
 import (
 	"bytes"
 	"encoding/json"
-	. "github.com/robaho/fixed"
+	. "github.com/sh7ning-mirror/fixed"
 	"math"
 	"testing"
 )
