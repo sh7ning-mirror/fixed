@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-// Fixed is a fixed precision 38.24 number (supports 11.7 digits). It supports NaN.
+// Fixed is a fixed precision 38.24 number (supports 10.8 digits). It supports NaN.
 type Fixed struct {
 	fp int64
 }
@@ -20,22 +20,28 @@ type Fixed struct {
 // the following constants can be changed to configure a different number of decimal places - these are
 // the only required changes. only 18 significant digits are supported due to NaN
 
-const nPlaces = 7
-const scale = int64(10 * 10 * 10 * 10 * 10 * 10 * 10)
-const zeros = "0000000"
-const MAX = float64(99999999999.9999999)
+const nPlaces = 8
+const scale = int64(10 * 10 * 10 * 10 * 10 * 10 * 10 * 10)
+const zeros = "00000000"
+const MAX = float64(9999999999.99999999)
 
 const nan = int64(1<<63 - 1)
 
 var NaN = Fixed{fp: nan}
 var ZERO = Fixed{fp: 0}
+// var (
+// 	ZERO = Fixed{fp: 0}
+// )
 
 var errTooLarge = errors.New("significand too large")
 var errFormat = errors.New("invalid encoding")
 
 // NewS creates a new Fixed from a string, returning NaN if the string could not be parsed
 func NewS(s string) Fixed {
-	f, _ := NewSErr(s)
+	f, _ /*err*/ := NewSErr(s)
+	//if err != nil {
+	//	panic(fmt.Sprintf("newSErr(%s) err: %s", s, err))
+	//}
 	return f
 }
 

@@ -24,7 +24,9 @@ func main() {
 
 	fmt.Println("Subtotal:", subtotal)                      // Subtotal: 408.06
 	fmt.Println("Pre-tax:", preTax)                         // Pre-tax: 422.3421
-	fmt.Println("Taxes:", total.Sub(preTax))                // Taxes: 37.482861375
+	fmt.Println("Taxes:", total.Sub(preTax).String())       // Taxes: 37.482861375
 	fmt.Println("Total:", total)                            // Total: 459.824961375
 	fmt.Println("Tax rate:", total.Sub(preTax).Div(preTax)) // Tax rate: 0.08875
+
+	fmt.Println("Taxes:", total.Sub(preTax).Mul(fixed.NewF(10)).String()) // Taxes: 37.482861375
 }
